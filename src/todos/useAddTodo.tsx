@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Todo } from './useTodos';
-import APIClient from '../services/ApiClient';
+import APIClient from '../services/APIClient';
 
 const apiClient = new APIClient<Todo>('/todos');
 

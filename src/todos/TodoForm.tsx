@@ -8,15 +8,19 @@ const TodoForm = () => {
   const addTodo = useMutation({
     mutationFn: (todo: Todo) =>
       axios
-        .post('https://jsonplaceholder.typicode.com/todoos', todo)
+        .post('https://jsonplaceholder.typicode.com/todos', todo)
         .then((res) => res.data),
-    onMutate: (newTodo: Todo) => {
+    onSuccess: (savedTodo, newTodo) => {
+      // invalidate cache
+      // queryClient.invalidateQueries({
+      //   queryKey: ['todos'],
+      // });
+
       queryClient.setQueryData<Todo[]>(['todos'], (todos) => [
         newTodo,
         ...(todos || []),
       ]);
     },
-    onSuccess: (savedTodo, newTodo) => {},
   });
 
   const ref = useRef<HTMLInputElement>(null);

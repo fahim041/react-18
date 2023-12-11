@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-import APIClient from '../services/ApiClient';
+import APIClient from '../services/APIClient';
 
 export interface Todo {
   id: number;

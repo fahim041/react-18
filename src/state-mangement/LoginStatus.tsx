@@ -1,13 +1,12 @@
-import { useReducer } from 'react';
-import authReducer from './reducers/authReducer';
+import useAuth from './hooks/useAuth';
 
 const LoginStatus = () => {
-  const [user, dispatch] = useReducer(authReducer, '');
+  const { user, dispatch } = useAuth();
 
   if (user)
     return (
       <div>
-        <span>{user}</span>
+        <span>user: {user}</span>
         <div>
           <button onClick={() => dispatch({ type: 'LOGOUT' })}>Logout</button>
         </div>

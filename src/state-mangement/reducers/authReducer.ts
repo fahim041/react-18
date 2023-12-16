@@ -12,7 +12,8 @@ export type AuthAction = LoginAction | LogoutAction;
 const authReducer = (state: string, action: AuthAction) => {
   switch (action.type) {
     case 'LOGIN':
-      return action.username;
+      state = action.username;
+      return state;
     case 'LOGOUT':
       return '';
     default:

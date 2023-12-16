@@ -18,13 +18,15 @@ export default function UserList() {
         signal: controller.signal,
       })
       .then((res) => setUsers(res.data))
-      .catch((err) => {});
+      .catch((err) => {
+        console.log(err);
+      });
 
     return () => controller.abort();
   }, []);
 
-  if(error){
-    return <p>{error}</p>
+  if (error) {
+    return <p>{error}</p>;
   }
 
   return (

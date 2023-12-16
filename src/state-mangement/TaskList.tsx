@@ -1,4 +1,4 @@
-import { useContext, useReducer } from 'react';
+import { useContext } from 'react';
 import TasksContext from './context/TaskContext';
 
 const TaskList = () => {
